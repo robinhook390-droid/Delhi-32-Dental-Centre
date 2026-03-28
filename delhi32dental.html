@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delhi 32 Dental Centre | NABH Accredited</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0a7c6e;
+    --teal-light: #12a396;
+    --teal-pale: #e8f5f3;
+    --gold: #c9a96e;
+    --dark: #0d1f1c;
+    --mid: #1e3d38;
+    --text: #2a3e3b;
+    --muted: #6b8580;
+    --white: #fdfefe;
+    --cream: #f7f3ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13, 31, 28, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .nav-logo span { display: block; font-size: 0.6rem; color: rgba(255,255,255,0.5); font-family: 'DM Sans', sans-serif; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--dark);
+    padding: 0.55rem 1.4rem; border-radius: 3px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 120px 5% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; right: 0; top: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, #0a7c6e22 0%, #12a39622 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,169,110,0.12);
+    border: 1px solid rgba(201,169,110,0.35);
+    padding: 0.4rem 1rem; border-radius: 2px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-badge span { color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .hero-badge::before { content: '✦'; color: var(--gold); font-size: 0.6rem; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-desc {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem; line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.3s ease both; }
+  .btn-primary {
+    background: var(--teal-light); color: #fff;
+    padding: 0.85rem 2rem; border-radius: 3px;
+    font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(10,124,110,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(10,124,110,0.5); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 3px;
+    font-weight: 500; font-size: 0.9rem;
+    text-decoration: none; transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,169,110,0.08); }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); font-weight: 700; line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+  .hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; animation: fadeUp 0.8s 0.2s ease both; }
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 8px;
+    padding: 2.5rem;
+    max-width: 380px; width: 100%;
+    backdrop-filter: blur(8px);
+  }
+  .rating-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .stars { color: #f5b731; font-size: 1.1rem; letter-spacing: 0.05em; }
+  .rating-text { color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; }
+  .rating-count { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  .hero-card h3 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; margin-bottom: 1rem; }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .feature-list li { color: rgba(255,255,255,0.7); font-size: 0.875rem; display: flex; align-items: center; gap: 0.6rem; }
+  .feature-list li::before { content: '✓'; color: var(--teal-light); font-weight: 700; font-size: 0.85rem; }
+  .card-divider { height: 1px; background: rgba(201,169,110,0.15); margin: 1.5rem 0; }
+  .contact-info { display: flex; flex-direction: column; gap: 0.6rem; }
+  .contact-row { display: flex; align-items: center; gap: 0.6rem; color: rgba(255,255,255,0.65); font-size: 0.85rem; }
+  .contact-icon { color: var(--teal-light); font-size: 1rem; width: 18px; text-align: center; }
+
+  /* NABH STRIP */
+  .nabh-strip {
+    background: linear-gradient(90deg, var(--teal) 0%, var(--mid) 100%);
+    padding: 1.2rem 5%;
+    display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap;
+  }
+  .nabh-item { display: flex; align-items: center; gap: 0.6rem; color: rgba(255,255,255,0.85); font-size: 0.85rem; font-weight: 500; }
+  .nabh-item::before { content: '◆'; color: var(--gold); font-size: 0.5rem; }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 5%; }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.15; color: var(--dark); }
+  .section-desc { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 520px; margin-top: 1rem; }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-visual {
+    position: relative;
+    background: var(--dark);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 460px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .clinic-graphic {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--mid) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+    padding: 2.5rem;
+  }
+  .clinic-icon { font-size: 5rem; }
+  .clinic-graphic h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.8rem; text-align: center; }
+  .clinic-graphic p { color: rgba(255,255,255,0.6); text-align: center; font-size: 0.9rem; line-height: 1.6; }
+  .about-badge-overlay {
+    position: absolute; bottom: 1.5rem; left: 1.5rem;
+    background: var(--gold); color: var(--dark);
+    padding: 0.6rem 1.2rem; border-radius: 3px;
+    font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em;
+  }
+  .about-content { display: flex; flex-direction: column; gap: 1.5rem; }
+  .about-text { color: var(--muted); line-height: 1.8; font-size: 0.95rem; }
+  .about-highlight {
+    background: var(--teal-pale);
+    border-left: 3px solid var(--teal);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .about-highlight p { color: var(--teal); font-weight: 500; font-size: 0.9rem; line-height: 1.6; font-style: italic; }
+  .govt-panels { margin-top: 0.5rem; }
+  .govt-panels h4 { font-weight: 600; font-size: 0.85rem; color: var(--dark); margin-bottom: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .panel-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .panel-tag { background: var(--white); border: 1px solid #d5e8e5; color: var(--teal); font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 2px; letter-spacing: 0.04em; }
+
+  /* SERVICES */
+  .services-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; margin-bottom: 3.5rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card {
+    background: var(--white);
+    border: 1px solid #e0eeec;
+    border-radius: 6px;
+    padding: 2rem;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    cursor: default;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(10,124,110,0.12);
+    border-color: var(--teal-light);
+  }
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--dark); margin-bottom: 0.6rem; }
+  .service-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; }
+  .service-card .service-tag { display: inline-block; margin-top: 1rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); background: var(--teal-pale); padding: 0.2rem 0.6rem; border-radius: 2px; }
+
+  /* DOCTOR */
+  .doctor { background: var(--dark); }
+  .doctor .section-title { color: var(--white); }
+  .doctor .section-label { color: var(--gold); }
+  .doctor-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; margin-top: 3.5rem; }
+  .doctor-portrait {
+    height: 480px;
+    background: linear-gradient(135deg, var(--mid) 0%, #0f2e28 100%);
+    border-radius: 6px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+    border: 1px solid rgba(201,169,110,0.2);
+  }
+  .portrait-icon { font-size: 8rem; }
+  .portrait-name { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.4rem; font-weight: 700; }
+  .portrait-cred { color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 0.05em; }
+  .doctor-content { display: flex; flex-direction: column; gap: 1.5rem; }
+  .doctor-content p { color: rgba(255,255,255,0.65); line-height: 1.8; font-size: 0.95rem; }
+  .exp-stat { display: flex; align-items: baseline; gap: 0.5rem; }
+  .exp-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--gold); font-weight: 700; line-height: 1; }
+  .exp-label { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+  .doctor-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem; }
+  .doc-feature { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .doc-feature-icon { background: rgba(18,163,150,0.15); color: var(--teal-light); width: 36px; height: 36px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .doc-feature-text { color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.5; }
+  .doc-feature-title { color: rgba(255,255,255,0.9); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.15rem; }
+
+  /* WHY US */
+  .why { background: var(--teal-pale); }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+  .why-card { text-align: center; padding: 2rem 1.5rem; background: var(--white); border-radius: 6px; border: 1px solid rgba(10,124,110,0.1); }
+  .why-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .why-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 0.5rem; }
+  .why-card p { color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+
+  /* CONTACT */
+  .contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+  .contact-info-block { display: flex; flex-direction: column; gap: 2rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-item-icon { background: var(--teal-pale); color: var(--teal); width: 48px; height: 48px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+  .contact-item h4 { font-weight: 600; color: var(--dark); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; }
+  .contact-item p, .contact-item a { color: var(--muted); font-size: 0.9rem; line-height: 1.6; text-decoration: none; }
+  .contact-item a:hover { color: var(--teal); }
+  .contact-form-area {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 2.5rem;
+    border: 1px solid #e5ecea;
+  }
+  .contact-form-area h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 0.75rem 1rem;
+    border: 1px solid #d5e0de; border-radius: 4px;
+    background: var(--white); color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--teal-light);
+    box-shadow: 0 0 0 3px rgba(18,163,150,0.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .btn-submit {
+    width: 100%;
+    background: var(--teal); color: var(--white);
+    padding: 0.9rem; border: none; border-radius: 4px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s, transform 0.2s;
+    margin-top: 0.5rem;
+  }
+  .btn-submit:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 3rem 5% 1.5rem;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-brand .nav-logo { font-size: 1.1rem; }
+  .footer-brand p { color: rgba(255,255,255,0.45); font-size: 0.85rem; line-height: 1.7; margin-top: 0.75rem; max-width: 260px; }
+  .footer-col h4 { color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col ul li a { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.78rem; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 100px 5% 60px; }
+    .hero-right { display: none; }
+    .about-grid, .doctor-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-header { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .services-grid, .why-grid { grid-template-columns: 1fr; }
+    .doctor-features { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .nabh-strip { gap: 1rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Delhi 32 Dental Centre
+    <span>NABH Accredited Dental Clinic</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#doctor">Our Doctor</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:09868326507" class="nav-cta">📞 Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge"><span>NABH Accredited Since 2004</span></div>
+    <h1>Your <em>Smile</em>,<br>Our Expertise</h1>
+    <p class="hero-desc">Delhi's trusted multispeciality dental centre led by Dr. Sachin Gupta with 20+ years of excellence in dental care — equipped with digital OPG X-ray and intra-oral scanner.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book Appointment</a>
+      <a href="tel:09868326507" class="btn-outline">098683 26507</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">561+</div>
+        <div class="stat-label">Happy Reviews</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="rating-row">
+        <span class="stars">★★★★★</span>
+        <span class="rating-text">4.9</span>
+        <span class="rating-count">/ 561 reviews</span>
+      </div>
+      <h3>Why patients choose us</h3>
+      <ul class="feature-list">
+        <li>NABH Accredited — highest quality standards</li>
+        <li>Digital OPG X-Ray & Intra-Oral Scanner</li>
+        <li>Panel of all major Govt. institutions</li>
+        <li>Wheelchair accessible entrance & seating</li>
+        <li>Debit cards, Google Pay accepted</li>
+        <li>Appointment required for best care</li>
+      </ul>
+      <div class="card-divider"></div>
+      <div class="contact-info">
+        <div class="contact-row"><span class="contact-icon">📍</span> Mansarovar Park, Shahdara, Delhi 110032</div>
+        <div class="contact-row"><span class="contact-icon">🕐</span> Opens 9:30 AM · Mon–Sat</div>
+        <div class="contact-row"><span class="contact-icon">📞</span> 098683 26507</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NABH STRIP -->
+<div class="nabh-strip">
+  <div class="nabh-item">NABH Accredited Facility</div>
+  <div class="nabh-item">CGHS | DGEHS | MCD Empanelled</div>
+  <div class="nabh-item">DJB | DVB | NCERT | IGNOU | ICAR</div>
+  <div class="nabh-item">SAI | BSES | Delhi University</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="clinic-graphic">
+        <div class="clinic-icon">🦷</div>
+        <h3>Delhi 32 Dental Centre</h3>
+        <p>Multispeciality Dental Centre<br>serving patients since 2004</p>
+      </div>
+      <div class="about-badge-overlay">Est. 2004 · 20 Years of Trust</div>
+    </div>
+    <div class="about-content">
+      <div>
+        <div class="section-label">About Our Clinic</div>
+        <h2 class="section-title">Dental Care of the<br>Highest Standard</h2>
+      </div>
+      <p class="about-text">Delhi 32 Dental Centre has been a cornerstone of quality dental healthcare since 2004. As a NABH accredited facility, we adhere to the strictest standards of sterilisation and hygiene as mandated by the National Accreditation Board for Hospitals and Healthcare Providers.</p>
+      <div class="about-highlight">
+        <p>"We believe in utmost care and strict sterilisation policies. Our focus is on timely and permanent cure of dental problems — not just temporary relief."</p>
+      </div>
+      <p class="about-text">We are equipped with cutting-edge technology including digital OPG X-ray and a state-of-the-art intra-oral scanner, enabling precise diagnosis and superior treatment outcomes.</p>
+      <div class="govt-panels">
+        <h4>Government Panels & Institutional Empanelment</h4>
+        <div class="panel-tags">
+          <span class="panel-tag">CGHS</span>
+          <span class="panel-tag">DGEHS</span>
+          <span class="panel-tag">MCD</span>
+          <span class="panel-tag">DJB</span>
+          <span class="panel-tag">DVB</span>
+          <span class="panel-tag">NCERT</span>
+          <span class="panel-tag">IGNOU</span>
+          <span class="panel-tag">BSES</span>
+          <span class="panel-tag">Delhi University</span>
+          <span class="panel-tag">ICAR</span>
+          <span class="panel-tag">SAI</span>
+          <span class="panel-tag">+ Many More</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Comprehensive Dental Services</h2>
+    </div>
+    <p class="section-desc">From routine check-ups to advanced procedures, our multispeciality centre covers all aspects of dental health under one roof.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <h3>Dental Examination</h3>
+      <p>Thorough oral examinations using digital OPG X-ray and intra-oral scanning for accurate diagnosis.</p>
+      <span class="service-tag">Preventive</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>Teeth Whitening</h3>
+      <p>Professional-grade whitening treatments for a brighter, more confident smile using advanced techniques.</p>
+      <span class="service-tag">Cosmetic</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🦷</div>
+      <h3>Dental Implants</h3>
+      <p>Permanent tooth replacement solutions that look, feel, and function like natural teeth.</p>
+      <span class="service-tag">Restorative</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Root Canal Treatment</h3>
+      <p>Pain-free RCT procedures using modern techniques to save and restore damaged teeth effectively.</p>
+      <span class="service-tag">Endodontics</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📐</div>
+      <h3>Orthodontics & Braces</h3>
+      <p>Metal, ceramic, and clear aligner options to straighten teeth and correct bite issues.</p>
+      <span class="service-tag">Orthodontic</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <h3>Gum Treatment</h3>
+      <p>Comprehensive periodontal care including scaling, root planing, and gum disease management.</p>
+      <span class="service-tag">Periodontics</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👶</div>
+      <h3>Pediatric Dentistry</h3>
+      <p>Gentle, child-friendly dental care to establish healthy oral habits from an early age.</p>
+      <span class="service-tag">Pediatric</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💎</div>
+      <h3>Crowns & Bridges</h3>
+      <p>High-quality prosthetic restorations crafted for durability and a natural appearance.</p>
+      <span class="service-tag">Prosthetic</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏥</div>
+      <h3>Oral Surgery</h3>
+      <p>Tooth extractions, wisdom tooth removal, and other surgical procedures with utmost care.</p>
+      <span class="service-tag">Surgery</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section class="doctor" id="doctor">
+  <div class="section-label">Meet Our Expert</div>
+  <h2 class="section-title">Dr. Sachin Gupta</h2>
+  <div class="doctor-grid">
+    <div class="doctor-portrait">
+      <div class="portrait-icon">👨‍⚕️</div>
+      <div class="portrait-name">Dr. Sachin Gupta</div>
+      <div class="portrait-cred">Director, Delhi 32 Dental Centre</div>
+    </div>
+    <div class="doctor-content">
+      <div class="exp-stat">
+        <span class="exp-num">20+</span>
+        <span class="exp-label">Years of Clinical<br>Excellence</span>
+      </div>
+      <p>Dr. Sachin Gupta is the Director and lead dentist at Delhi 32 Dental Centre. With over two decades of dedicated practice, he has treated countless patients and built an exceptional reputation for his commitment to permanent, quality dental care.</p>
+      <p>His philosophy centres on understanding each patient's unique needs and providing solutions that are not just effective in the short term, but lasting and life-changing. Under his leadership, the clinic achieved and maintains NABH accreditation — a mark of true clinical excellence.</p>
+      <div class="doctor-features">
+        <div class="doc-feature">
+          <div class="doc-feature-icon">🏆</div>
+          <div>
+            <div class="doc-feature-title">NABH Accredited</div>
+            <div class="doc-feature-text">Highest institutional quality standards</div>
+          </div>
+        </div>
+        <div class="doc-feature">
+          <div class="doc-feature-icon">🔬</div>
+          <div>
+            <div class="doc-feature-title">Advanced Technology</div>
+            <div class="doc-feature-text">Digital OPG & Intra-oral scanner</div>
+          </div>
+        </div>
+        <div class="doc-feature">
+          <div class="doc-feature-icon">🏥</div>
+          <div>
+            <div class="doc-feature-title">Govt. Empanelled</div>
+            <div class="doc-feature-text">CGHS, DGEHS & all major panels</div>
+          </div>
+        </div>
+        <div class="doc-feature">
+          <div class="doc-feature-icon">😊</div>
+          <div>
+            <div class="doc-feature-title">Patient-First Approach</div>
+            <div class="doc-feature-text">4.9★ with 561+ Google reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div style="text-align:center;">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">Excellence in Every Aspect</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏅</div>
+      <h3>NABH Accredited</h3>
+      <p>Certified by India's National Accreditation Board — a guarantee of clinical quality and patient safety.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧬</div>
+      <h3>Strict Sterilisation</h3>
+      <p>We follow NABH-compliant sterilisation protocols — every instrument is sanitised to the highest standards.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💻</div>
+      <h3>Digital Technology</h3>
+      <p>Digital OPG X-ray and intra-oral scanner for precise, radiation-safe, and accurate diagnostics.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">♿</div>
+      <h3>Fully Accessible</h3>
+      <p>Wheelchair-accessible entrance and seating — our facility is inclusive and welcoming for all patients.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Book Your Appointment</h2>
+    <p class="section-desc">We recommend scheduling in advance. Walk-ins welcome, appointments prioritised.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info-block">
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p>Main Mandoli Rd, near Unique Collection,<br>Ram Nagar Market, Mansarovar Park,<br>Shahdara, Delhi – 110032</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <a href="tel:09868326507">098683 26507</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div>
+          <h4>Hours</h4>
+          <p>Opens 9:30 AM · Monday to Saturday<br>Appointments recommended</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">💳</div>
+        <div>
+          <h4>Payments Accepted</h4>
+          <p>Debit Cards · Google Pay · NFC Mobile Payments</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-area">
+      <h3>Request an Appointment</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Rahul">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Sharma">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 98765 43210">
+      </div>
+      <div class="form-group">
+        <label>Service Required</label>
+        <select>
+          <option value="">Select a service…</option>
+          <option>Dental Examination / Consultation</option>
+          <option>Teeth Whitening</option>
+          <option>Dental Implants</option>
+          <option>Root Canal Treatment</option>
+          <option>Orthodontics / Braces</option>
+          <option>Gum Treatment</option>
+          <option>Pediatric Dentistry</option>
+          <option>Crowns & Bridges</option>
+          <option>Oral Surgery</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea placeholder="Tell us about your concern or preferred appointment time…"></textarea>
+      </div>
+      <button class="btn-submit" onclick="alert('Thank you! We will contact you shortly to confirm your appointment.')">Book Appointment →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        Delhi 32 Dental Centre
+        <span>NABH Accredited Dental Clinic</span>
+      </div>
+      <p>Providing exceptional dental care with the highest standards of hygiene and technology since 2004.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Dental Examination</a></li>
+        <li><a href="#services">Teeth Whitening</a></li>
+        <li><a href="#services">Dental Implants</a></li>
+        <li><a href="#services">Root Canal</a></li>
+        <li><a href="#services">Orthodontics</a></li>
+        <li><a href="#services">Gum Treatment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:09868326507">098683 26507</a></li>
+        <li><a href="#contact">Book Appointment</a></li>
+        <li><a href="#about">About the Clinic</a></li>
+        <li><a href="#doctor">Dr. Sachin Gupta</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Delhi 32 Dental Centre. NABH Accredited. All rights reserved.</p>
+    <p>Mansarovar Park, Shahdara, Delhi 110032</p>
+  </div>
+</footer>
+
+</body>
+</html>
